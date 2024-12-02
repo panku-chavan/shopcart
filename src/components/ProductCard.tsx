@@ -1,23 +1,24 @@
 import Image from "next/image";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+
+// Adjusted propType to remove 'any' and add specific types
 interface propType {
   title: string;
-  price: any;
+  price: number | string; // price can be a number or string
   description: string;
   category: string;
   image: string;
-  rating: any;
-  count: number;
+  rating: number; // rating is a number
 }
+
 const ProductCard: React.FC<propType> = ({
   title,
   price,
   description,
   category,
   image,
-  rating,
-  count
+  rating
 }) => {
   const generateRating = (rating: number) => {
     switch (rating) {
@@ -75,9 +76,9 @@ const ProductCard: React.FC<propType> = ({
         return null;
     }
   };
+
   return (
     <div className="px-4 border border-gray-200 rounded-xl max-w-[400px]">
-      {/* <img src={image} alt={title} className='w-full h-auto' width={200} height={300}/> */}
       <div>
         <Image
           className="w-[200px] h-[300px] object-contain"
@@ -98,7 +99,12 @@ const ProductCard: React.FC<propType> = ({
           {category}
         </p>
         <div>{generateRating(rating)}</div>
-        <div className="font-bold flex gap-4">&#8377;{price}<del className="text-gray-500 font-normal">&#8377;{parseInt(price)+50}.00</del></div>
+        <div className="font-bold flex gap-4">
+          &#8377;{price}
+          <del className="text-gray-500 font-normal">
+            &#8377;{parseInt(price.toString()) + 50}.00
+          </del>
+        </div>
       </div>
     </div>
   );
