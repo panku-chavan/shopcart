@@ -26,7 +26,7 @@ const Testimonial = () => {
                 alt="user image"
               />
               <p className="max-w-[200px] text-gray-500">
-              We're here to make a difference, not just a profit.
+              We&apos;re here to make a difference, not just a profit.
               </p>
             </div>
           </div>
