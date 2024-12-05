@@ -33,7 +33,14 @@ const Hero = () => {
         mainTitle:"NEW FASION SUMMER SALE",
         img:'/banner-3.jpg',
         price:"200"
-    }
+    },
+    {
+      id:2,
+      title:"Winter Collection",
+      mainTitle:"NEW FASION WINTER SALE",
+      img:'/banner-4.jpg',
+      price:"200"
+  }
     ]
   return (
     <div>
