@@ -12,21 +12,21 @@ interface Rating {
   count: number;
 }
 
-// interface Product {
-//   id: number;
-//   title: string;
-//   description: string;
-//   category: string;
-//   image: string;
-//   price: number;
-//   rating: Rating;
-// }
+interface Product {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  price: number;
+  rating: Rating;
+}
 
 const NewProduct = () => {
   // Define the state with the Product array type
   const dispatch = useAppDispatch();
   // const [products, setProducts] = useState<Product[]>([]);
-  const products = useAppSelector((state:RootState)=>state.newProduct.product);
+  const products:Product[] = useAppSelector((state:RootState)=>state.newProduct.product);
   // Function to fetch products
   
 
