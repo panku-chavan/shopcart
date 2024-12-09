@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import * as endpoints from "../../utility/NetworkUtility";
 interface productState {
-  product: any[];
+  product: [];
 }
 
 const initialState: productState = {
   product: [],
 };
 interface productProp {
-  product: any[];
+  product: [];
 }
 const newProductSlice = createSlice({
   name: "new product",

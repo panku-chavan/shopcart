@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from '../components/ProductCard';
 import { useAppDispatch, useAppSelector } from '@/custom-hooks/reduxHook';
 import { getAllNewProducts } from '@/redux/feature/newProductSlice';
@@ -12,15 +12,15 @@ interface Rating {
   count: number;
 }
 
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  price: number;
-  rating: Rating;
-}
+// interface Product {
+//   id: number;
+//   title: string;
+//   description: string;
+//   category: string;
+//   image: string;
+//   price: number;
+//   rating: Rating;
+// }
 
 const NewProduct = () => {
   // Define the state with the Product array type
@@ -35,7 +35,7 @@ const NewProduct = () => {
     // getProducts();
     dispatch(getAllNewProducts())
     
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
