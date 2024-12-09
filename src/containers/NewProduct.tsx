@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard';
+import { useAppDispatch, useAppSelector } from '@/custom-hooks/reduxHook';
+import { getAllNewProducts } from '@/redux/feature/newProductSlice';
+import { RootState } from '@/redux/store/store';
 
 // Define the Rating and Product interfaces
 interface Rating {
@@ -21,22 +24,17 @@ interface Product {
 
 const NewProduct = () => {
   // Define the state with the Product array type
-  const [products, setProducts] = useState<Product[]>([]);
-
+  const dispatch = useAppDispatch();
+  // const [products, setProducts] = useState<Product[]>([]);
+  const products = useAppSelector((state:RootState)=>state.newProduct.product);
   // Function to fetch products
-  const getProducts = () => {
-    try {
-      fetch('https://fakestoreapi.com/products')
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   // useEffect hook to trigger the product fetching on component mount
   useEffect(() => {
-    getProducts();
+    // getProducts();
+    dispatch(getAllNewProducts())
+    
   }, []);
 
   return (

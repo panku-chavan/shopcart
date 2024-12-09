@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "@/components/Footer";
+import ClientLayout from "./ClientLayout";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,11 +34,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ClientLayout>
         <HeaderTop/>
         <HeaderMain/>
         <Navbar/>
         {children}
         <Footer/>
+        </ClientLayout>
       </body>
     </html>
   );

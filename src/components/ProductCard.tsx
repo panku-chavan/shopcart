@@ -78,7 +78,7 @@ const ProductCard: React.FC<propType> = ({
   };
 
   return (
-    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px]">
+    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px] hover:scale-105 transition-transform duration-200 hover:shadow-lg">
       <div>
         <Image
           className="w-[200px] h-[300px] object-contain"
