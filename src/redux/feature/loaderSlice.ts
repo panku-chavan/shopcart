@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import * as endpoints from "../../utility/NetworkUtility";
+import {  createSlice, PayloadAction } from "@reduxjs/toolkit";
 
   
 interface loaderState {
@@ -22,7 +21,7 @@ const newloaderSlice = createSlice({
         isSkeleton: action.payload.isSkeleton,
       };
     },
-    reseteLoaderState: (state, action: PayloadAction<skeletonProp>) => {
+    reseteLoaderState: (state) => {
         return {
           ...state,
           isSkeleton: false,
