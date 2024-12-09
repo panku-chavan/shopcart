@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiUser } from "react-icons/bi";
-import { FaHome, FaSearch, FaShoppingCart, FaUser, FaBars } from "react-icons/fa";
+import { FaHome, FaBars } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
@@ -58,10 +58,10 @@ const Navbar = () => {
         {showCategories && (
           <ul className="bg-gray-50 py-2 px-4 border-t border-gray-200">
             <li className="py-1 hover:bg-gray-100">
-              <Link href="/mens-clothing" className="text-gray-700 hover:text-blue-500">Men's Collection</Link>
+              <Link href="/mens-clothing" className="text-gray-700 hover:text-blue-500">Men&apos;s Collection</Link>
             </li>
             <li className="py-1 hover:bg-gray-100">
-              <Link href="/womens-clothing" className="text-gray-700 hover:text-blue-500">Women's Collection</Link>
+              <Link href="/womens-clothing" className="text-gray-700 hover:text-blue-500">Women&apos;s Collection</Link>
             </li>
             <li className="py-1 hover:bg-gray-100">
               <Link href="/jewelery" className="text-gray-700 hover:text-blue-500">Jewelry</Link>
