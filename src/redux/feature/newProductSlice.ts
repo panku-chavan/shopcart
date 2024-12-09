@@ -48,7 +48,7 @@ export const getAllNewProducts = createAsyncThunk(
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      console.log(response)
+    //   console.log(response)
       if(response.status){
         const data = await response.json();
       dispatch(

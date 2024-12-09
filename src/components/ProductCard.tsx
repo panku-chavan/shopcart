@@ -89,7 +89,7 @@ const ProductCard: React.FC<propType> = ({
         />
       </div>
       <div className="space-y-2 py-2">
-        <h2 className="text-accent font-medium uppercase line-clamp-2">
+        <h2 className="text-accent font-medium uppercase line-clamp-1">
           {title}
         </h2>
         <p className="text-gray-500 max-w-[150px] line-clamp-1">
