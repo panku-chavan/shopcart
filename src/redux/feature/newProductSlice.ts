@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import * as endpoints from "../../utility/NetworkUtility";
+import { setSkeletonState } from "./loaderSlice";
 interface Rating {
     rate: number;
     count: number;
@@ -78,6 +79,9 @@ export const getSingleProduct = createAsyncThunk(
   "get single product detail",
   async (payload:number, { dispatch }) => {
     try {
+      dispatch(setSkeletonState({
+        isSkeleton:true
+      }))
       const response = await fetch(`${endpoints.productDetailApi}${payload}`, {
         method: "GET",
         headers: {
@@ -93,6 +97,9 @@ export const getSingleProduct = createAsyncThunk(
         })
       );
       }
+      dispatch(setSkeletonState({
+        isSkeleton:false
+      }))
     } catch (error) {
       console.log(error);
     }
