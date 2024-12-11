@@ -55,6 +55,7 @@ const WomensClothing = () => {
             {products.map((item) => (
               <ProductCard
                 key={item.id}
+                id={item.id}
                 title={item.title}
                 image={item.image}
                 rating={Math.floor(item.rating.rate)}

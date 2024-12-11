@@ -24,6 +24,7 @@ interface Product {
 
 const NewProduct = () => {
   // Define the state with the Product array type
+  
   const dispatch = useAppDispatch();
   // const [products, setProducts] = useState<Product[]>([]);
   const products:Product[] = useAppSelector((state:RootState)=>state.newProduct.product);
@@ -46,6 +47,7 @@ const NewProduct = () => {
           {products.map((item) => (
             <ProductCard
               key={item.id}
+              id={item.id}
               title={item.title}
               image={item.image}
               rating={Math.floor(item.rating.rate)}

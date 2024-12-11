@@ -17,13 +17,18 @@ interface Rating {
   
 interface productState {
   product:Product[];
+  singleProduct: Partial<Product>;
 }
 
 const initialState: productState = {
   product: [],
+  singleProduct:{}
 };
 interface productProp {
   product: Product[];
+}
+interface singleProductProp {
+  singleProduct: Product |{};
 }
 const newProductSlice = createSlice({
   name: "new product",
@@ -33,6 +38,12 @@ const newProductSlice = createSlice({
       return {
         ...state,
         product: action.payload.product,
+      };
+    },
+    setSingleProducts: (state, action: PayloadAction<singleProductProp>) => {
+      return {
+        ...state,
+        singleProduct: action.payload.singleProduct,
       };
     },
   },
@@ -63,6 +74,30 @@ export const getAllNewProducts = createAsyncThunk(
   }
 );
 
-export const { setAllProducts } = newProductSlice.actions;
+export const getSingleProduct = createAsyncThunk(
+  "get single product detail",
+  async (payload:number, { dispatch }) => {
+    try {
+      const response = await fetch(`${endpoints.productDetailApi}${payload}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+    //   console.log(response)
+      if(response.status===200){
+        const data = await response.json();
+      dispatch(
+        setSingleProducts({
+          singleProduct: data,
+        })
+      );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+export const { setAllProducts,setSingleProducts } = newProductSlice.actions;
 
 export default newProductSlice.reducer;

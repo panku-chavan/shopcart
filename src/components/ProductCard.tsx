@@ -1,9 +1,12 @@
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 // Adjusted propType to remove 'any' and add specific types
 interface propType {
+  id:number;
   title: string;
   price: number | string; // price can be a number or string
   description: string;
@@ -13,6 +16,7 @@ interface propType {
 }
 
 const ProductCard: React.FC<propType> = ({
+  id,
   title,
   price,
   description,
@@ -20,6 +24,8 @@ const ProductCard: React.FC<propType> = ({
   image,
   rating
 }) => {
+  const router= useRouter();
+
   const generateRating = (rating: number) => {
     switch (rating) {
       case 1:
@@ -76,9 +82,12 @@ const ProductCard: React.FC<propType> = ({
         return null;
     }
   };
-
+const routeToProductDetails=(id:number)=>{
+  // console.log(id)
+  router.push(`/product/${id}`);
+}
   return (
-    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px] hover:scale-105 transition-transform duration-200 hover:shadow-lg">
+    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px] hover:scale-105 transition-transform duration-200 hover:shadow-lg cursor-pointer" onClick={()=>routeToProductDetails(id)}>
       <div>
         <Image
           className="w-[200px] h-[300px] object-contain"
@@ -100,9 +109,9 @@ const ProductCard: React.FC<propType> = ({
         </p>
         <div>{generateRating(rating)}</div>
         <div className="font-bold flex gap-4">
-          &#8377;{price}
+          &#8377;{Number(price)+100}
           <del className="text-gray-500 font-normal">
-            &#8377;{parseInt(price.toString()) + 50}.00
+            &#8377;{parseInt(price.toString()) + 150}.00
           </del>
         </div>
       </div>
