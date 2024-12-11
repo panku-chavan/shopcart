@@ -28,7 +28,7 @@ interface productProp {
   product: Product[];
 }
 interface singleProductProp {
-  singleProduct: Product |{};
+  singleProduct: Product ;
 }
 const newProductSlice = createSlice({
   name: "new product",
