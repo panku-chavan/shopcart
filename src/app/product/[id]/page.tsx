@@ -6,7 +6,7 @@ import { RootState } from "@/redux/store/store";
 import { useParams } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { singleProduct } = useAppSelector(
@@ -33,4 +33,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import SuccessBtn from "./UI/Buttons/SuccessButton";
-import { nanoid } from "@reduxjs/toolkit";
 
 interface propType {
   id: number;
@@ -15,7 +14,6 @@ interface propType {
 }
 
 const ProductDetails: React.FC<propType> = ({
-  id,
   title,
   price,
   description,
