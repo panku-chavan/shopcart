@@ -37,7 +37,7 @@ export default function RootLayout({
         <ClientLayout>
         <HeaderTop/>
         <HeaderMain/>
-        {/* <Navbar/> */}
+        <Navbar/>
         {children}
         <Footer/>
         </ClientLayout>
