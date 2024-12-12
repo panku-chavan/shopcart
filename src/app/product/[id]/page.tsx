@@ -19,7 +19,7 @@ const Page = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="container p-5">
       <ProductDetails
         image={singleProduct.image ?? ""}
         id={singleProduct.id ?? 0}

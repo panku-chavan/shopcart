@@ -43,7 +43,7 @@ const Hero = () => {
   }
     ]
   return (
-    <div>
+    <div className="w-[99.20%] flex justify-center items-center">
       <div className="container pt-6 lg:pt-0">
         <Slider {...settings}>
           {slideData.map((item) => (
